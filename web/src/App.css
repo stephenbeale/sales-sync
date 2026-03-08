@@ -1,0 +1,327 @@
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface-hover: #222632;
+  --border: #2a2e3a;
+  --text: #e4e6eb;
+  --text-muted: #8b8fa3;
+  --accent: #6c63ff;
+  --accent-hover: #5a52e0;
+  --vinted: #09b1ba;
+  --vinted-hover: #07959d;
+  --ebay: #e53238;
+  --ebay-hover: #c42a2f;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Form */
+.add-item-form,
+.email-checker {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-item-form h2,
+.email-checker h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-field {
+  margin-bottom: 0.75rem;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: var(--accent);
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Filter */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-bar button {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.filter-bar button.active,
+.filter-bar button[aria-pressed="true"] {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Items */
+section[aria-label="Inventory"] h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.count {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.item-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.item-card.sold {
+  opacity: 0.6;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.item-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-badge.active {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.status-badge.sold {
+  background: rgba(139, 143, 163, 0.15);
+  color: var(--text-muted);
+}
+
+.item-details p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.label {
+  color: var(--text);
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-vinted {
+  background: var(--vinted);
+}
+
+.btn-vinted:hover:not(:disabled) {
+  background: var(--vinted-hover);
+}
+
+.btn-ebay {
+  background: var(--ebay);
+}
+
+.btn-ebay:hover:not(:disabled) {
+  background: var(--ebay-hover);
+}
+
+.btn-delete {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
+}
+
+/* Results / messages */
+.sync-result {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.sync-result.success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.sync-result.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.status-msg {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.error {
+  color: var(--error);
+}
+
+.success {
+  color: var(--success);
+}
+
+.warning {
+  color: var(--warning);
+}
+
+.reminder {
+  color: var(--warning);
+  font-style: italic;
+}
+
+/* Email checker */
+.email-results {
+  margin-top: 0.75rem;
+}
+
+.email-match {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.email-match.matched {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.email-match.unmatched {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem 0.75rem;
+  }
+
+  .item-actions {
+    flex-direction: column;
+  }
+
+  .btn-delete {
+    margin-left: 0;
+  }
+}

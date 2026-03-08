@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.db
+__pycache__/
+*.pyc
+api/token.json
+api/credentials.json
+.venv/
